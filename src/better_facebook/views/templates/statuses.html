@@ -1,0 +1,24 @@
+{% extends "better_facebook/views/templates/base.html" %}
+{% block content %}
+<div class="row">
+    <form action="/say" method="POST">
+        <div class="form-group">
+            <textarea name="status" class="form-control"></textarea>
+        </div>
+        <div class="form-group">
+            <button type="submit" class="btn btn-primary btn-lg pull-right">Say!</button>
+        </div>
+    </form>
+</div>
+
+<br/>
+<br/>
+<br/>
+
+{% for status in statuses %}
+  <div class="row status">
+    <p class="col-sm-8 text">{{status.text}}</p>
+    <p class="col-sm-4 author">{{status.user_id}}</p>
+  </div>
+{% endfor %}
+{% endblock %}
